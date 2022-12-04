@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Text</title>
+</head>
+<body>
+    <input id="circle-color" type="color">
+    <button id="create-circle">Apply Now</button>
+    <br>
+    <canvas id="canvas" style="border:1px red solid;">
+
+
+    <script>
+        var createCircle = document.getElementById("create-circle");
+        var choseCircleColor = document.getElementById("circle-color");
+        var canvas = document.getElementById("canvas");
+        canvas.width = "1200"
+        canvas.height = "600"
+
+        var ctx = canvas.getContext("2d");
+        function addAlpha(color, opacity) {
+            // coerce values so ti is between 0 and 1.
+            var _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
+            return color + _opacity.toString(16).toUpperCase();
+        }
+
+        createCircle.addEventListener('click', () => {
+            ctx.strokeStyle = choseCircleColor.value;
+            ctx.fillStyle = addAlpha(choseCircleColor.value, 0.5);
+            for (var i = 0; i < 20; i++){
+                var randomRadius = Math.floor(Math.random() * 40);
+                var randomX = Math.floor(Math.random() * 1200);
+                var randomY = Math.floor(Math.random() * 600);
+                ctx.beginPath();
+                ctx.arc(randomX, randomY, randomRadius, 0, 2 * Math.PI)
+                // ctx.rect(10,0,50,50);
+                ctx.stroke();
+                ctx.fill();
+                ctx.closePath();
+            }
+        })
+
+
+        
+    </script>
+</body>
+</html>

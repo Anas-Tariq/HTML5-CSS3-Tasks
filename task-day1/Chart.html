@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart</title>
+</head>
+<body>
+    <label for="chart-height">Insert a number</label>
+    <input id="chart-height" type="number" min="0" max="600">
+    <label for="chart-color">Chose a Color</label>
+    <input id="chart-color" type="color">
+    <button id="create-chart">Add</button>
+    <br>
+    <canvas id="canvas" style="border:1px red solid;">
+    
+        <script>
+            var createChart = document.getElementById("create-chart");
+            var chartColor = document.getElementById("chart-color");
+            var chartHeight = document.getElementById("chart-height");
+            var canvas = document.getElementById("canvas");
+            canvas.width = "1200";
+            canvas.height = "600";
+            var ctx = canvas.getContext("2d");
+            var Xstart = 0;
+
+
+            createChart.addEventListener('click', () => {
+                
+                ctx.fillStyle = chartColor.value;
+                ctx.beginPath();
+                ctx.rect(Xstart,600 - parseInt(chartHeight.value), 50, parseInt(chartHeight.value));
+                console.log(Xstart,600 - parseInt(chartHeight.value), 50, parseInt(chartHeight.value))
+                ctx.fill();
+                ctx.closePath();
+                Xstart += 75;
+            })
+
+
+
+
+        </script>
+</body>
+</html>
