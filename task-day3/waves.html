@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body {
+                background-color: #03151d;
+            }
+            #sunset-view {
+                width: 40vw;
+                height: 100vh;
+                margin: auto;
+                background-image: linear-gradient(#f28057, #f3b43f);
+                border-radius: 5px;
+                overflow: hidden;
+            }
+            .sun {
+                position: relative;
+                top: 4vh;
+                left: 34vw;
+                border-radius: 50%;
+                background-color: #f4c557;
+                width: 50px;
+                height: 50px;
+            }
+            .wave1 {
+                position: relative;
+                height: 1174px;
+                width: 1166px;
+                background-color: #55848a;
+                bottom: -71vh;
+                right: 296px;
+                border-radius: 43%;
+                animation: move-wave 4s infinite;
+            }
+            .wave2 {
+                position: relative;
+                height: 1497px;
+                width: 1350px;
+                background-color: #55848a;
+                bottom: -71vh;
+                right: 296px;
+                border-radius: 43%;
+                opacity: 0.5;
+                transform: rotate(90deg);
+                animation: move-wave 4s infinite;
+            }
+            @keyframes move-wave {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+        <title>Waves</title>
+    </head>
+    <body>
+        <div id="sunset-view">
+            <div class="sun"></div>
+            <div class="wave1"></div>
+            <div class="wave2"></div>
+        </div>
+    </body>
+</html>

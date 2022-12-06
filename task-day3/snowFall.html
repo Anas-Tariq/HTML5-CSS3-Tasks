@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body {
+                overflow: hidden;
+            }
+            #bg {
+                width: 100%;
+                height: 100vh;
+                background-image: linear-gradient(#4f4e5f, #232321);
+            }
+            #bg img {
+                position: absolute;
+                top: 0;
+                animation: falling infinite;
+            }
+            @keyframes falling {
+                from {
+                    top: 0;
+                }
+                to {
+                    top: 100vh;
+                }
+            }
+        </style>
+        <title>SnowFall</title>
+    </head>
+    <body>
+        <div id="bg">
+            <!-- <img id="snowflake" src="snowflake.png" alt="" /> -->
+        </div>
+
+        <script>
+            var snowContainer = document.getElementById("bg");
+            setInterval(() => {
+                var snowflake = document.createElement("img");
+                snowflake.setAttribute("src", "snowflake.png");
+                snowflake.style.left = `${Math.floor(Math.random() * 100)}vw`;
+                snowflake.style.opacity = Math.random();
+                snowflake.style.animationDuration = `${Math.ceil(Math.random() * 5)}s`;
+                snowContainer.appendChild(snowflake);
+                if (snowflake.style.top == "100vh") {
+                    img.remove();
+                }
+            }, 1000);
+        </script>
+    </body>
+</html>
